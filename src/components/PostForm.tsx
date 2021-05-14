@@ -28,8 +28,8 @@ function PostForm ({onSubmit}: Props) {
           onSubmit(post);
     
         // reset form
-            setTitle("Banjo");
-            setThought("LAME");
+            setTitle("");
+            setThought("");
     }
 
 

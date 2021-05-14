@@ -14,9 +14,10 @@ function PostInList({post, onDelete}: Props) {
     return (
         <div className="PostInList" >
             <p> 
-                <h3>{post.title}</h3> 
-                <p>{post.thought}</p>
+                <h3 className="Title">{post.title}</h3> 
+                <p className="Thought">{post.thought}</p>
                 <button onClick={onDelete} >Delete</button>
+                <span className="material-icons-outlined">delete</span>
             </p>
         </div>
     )
