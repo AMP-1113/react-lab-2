@@ -3,16 +3,41 @@ import { useState, FormEvent } from "react";
 import './PostForm.css';
 
 interface Props {
-    onSubmit: (title: Post, thought: Post) => void;
+    onSubmit: (post: Post) => void;
   }
 
-function PostForm () {
+
+function PostForm ({onSubmit}: Props) {
     const [ title, setTitle ] = useState(" ");
     const [ thought, setThought ] = useState(" ");
+    const [ form, showForm ] = useState(true);
  
+    function hideForm() {
+        showForm(false);
+    }
+
+    function handleSubmit(e:FormEvent) {
+        e.preventDefault();
+    // on form submit get the data from the state
+    // build our model object from the state
+        const post: Post = {
+            title: title,
+            thought: thought
+          };
+          // send the model object to the parent via the callback prop
+          onSubmit(post);
+    
+        // reset form
+            setTitle("Banjo");
+            setThought("LAME");
+    }
+
 
     return (
-        <form className="PostForm">
+    <div>
+        { form &&
+        <form className="PostForm" onSubmit={handleSubmit}>
+                <button type="button" onClick={hideForm}>Close</button>
                 <label> Title: 
                 <input type="text" className="title" onChange={e => setTitle(e.target.value)} value={title} />
                 </label>
@@ -21,6 +46,8 @@ function PostForm () {
                 </label>
             <button type="submit">Submit</button>
         </form>
+        }
+    </div>
     )
 }
 

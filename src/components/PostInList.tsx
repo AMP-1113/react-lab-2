@@ -1,23 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Post from "../model/Post";
+import PostForm from "./PostForm";
 import './PostInList.css';
+import SocialPosts from "./SocialPosts";
 
 interface Props {
     post: Post;
-    onDelete: (post: Post) => void;
+    onDelete?: () => void;
 }
 
 function PostInList({post, onDelete}: Props) {
-
-    // const [ posts, setPosts] = useState<Post[]>([
-    //     { title: "Guitar", thought: "I love guitar" },
-    //     { title: "Rock and Roll", thought: "I love Rock and Roll" },
-    //     { title: "drums", thought: "drums are loud" },
-    //   ]); 
-
+ 
     return (
-        <div className="PostInList">
-            
+        <div className="PostInList" >
+            <p> 
+                <h3>{post.title}</h3> 
+                <p>{post.thought}</p>
+                <button onClick={onDelete} >Delete</button>
+            </p>
         </div>
     )
 }

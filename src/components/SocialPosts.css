@@ -1,6 +1,9 @@
 .SocialPosts {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f3f1f7;
 }
 
 .Header {
@@ -14,10 +17,16 @@
     background-color: #79c5e8;
 }
 
+
 #newThoughtButton {
     background-color: #03a9f4;
+    width: 33%;
 }
 
 button {
     font-family: 'Dosis', sans-serif;
+}
+
+.hideForm {
+    display: hidden;
 }
