@@ -37,7 +37,6 @@ function PostForm ({onSubmit}: Props) {
     <div>
         { form &&
         <form className="PostForm" onSubmit={handleSubmit}>
-                <button type="button" onClick={hideForm}>Close</button>
                 <label> Title: 
                 <input type="text" className="title" onChange={e => setTitle(e.target.value)} value={title} />
                 </label>

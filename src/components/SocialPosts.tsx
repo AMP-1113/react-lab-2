@@ -14,6 +14,10 @@ function SocialPosts() {
         setDisplay(true);
     }
 
+    function hideForm() {
+        setDisplay(false);
+    }
+
     function handleDeletePost(index: number): void {
         setPosts(prevPosts => [
           ...prevPosts.slice(0, index),
@@ -27,15 +31,22 @@ function SocialPosts() {
         setDisplay(false);
       }
 
+      const button = <button type="button" className="close" onClick={ hideForm }>X</button>
+
     return (
         <div className="SocialPosts">
             <header className="Header">
                 <h1>My Thoughts</h1>
             </header>
             <div className={"formContainer"}>
-                {display && <PostForm onSubmit={handleAddPost} /> }
+                {display &&
+                    <>
+                    {button}
+                <PostForm onSubmit={handleAddPost} /> 
+                </> }
+
             </div>
-            <button id="newThoughtButton" onClick={showForm}>New Thought</button>
+            <button className="newThoughtButton" onClick={showForm}>New Thought</button>
             <div className="PostContainer">
             {posts.map((post, i) => 
                     <PostInList key={i} post={post} onDelete={ () => handleDeletePost(i)}/>
