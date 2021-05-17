@@ -1,5 +1,4 @@
-import { title } from "process";
-import React, { useState } from "react";
+import { useState } from "react";
 import Post from "../model/Post";
 import PostForm from "./PostForm";
 import PostInList from "./PostInList";
@@ -31,7 +30,7 @@ function SocialPosts() {
         setDisplay(false);
       }
 
-      const button = <button type="button" className="close" onClick={ hideForm }>X</button>
+      const closeButton = <button type="button" className="close" onClick={ hideForm }>X</button>
 
     return (
         <div className="SocialPosts">
@@ -41,7 +40,7 @@ function SocialPosts() {
             <div className={"formContainer"}>
                 {display &&
                     <>
-                    {button}
+                    {closeButton}
                 <PostForm onSubmit={handleAddPost} /> 
                 </> }
 

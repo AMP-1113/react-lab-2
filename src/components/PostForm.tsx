@@ -6,15 +6,9 @@ interface Props {
     onSubmit: (post: Post) => void;
   }
 
-
 function PostForm ({onSubmit}: Props) {
     const [ title, setTitle ] = useState(" ");
     const [ thought, setThought ] = useState(" ");
-    const [ form, showForm ] = useState(true);
- 
-    function hideForm() {
-        showForm(false);
-    }
 
     function handleSubmit(e:FormEvent) {
         e.preventDefault();
@@ -32,11 +26,9 @@ function PostForm ({onSubmit}: Props) {
             setThought("");
     }
 
-
     return (
     <div>
-        { form &&
-        <form className="PostForm" onSubmit={handleSubmit}>
+         <form className="PostForm" onSubmit={handleSubmit}>
                 <label> Title: 
                 <input type="text" className="title" onChange={e => setTitle(e.target.value)} value={title} />
                 </label>
@@ -45,7 +37,6 @@ function PostForm ({onSubmit}: Props) {
                 </label>
             <button type="submit">Submit</button>
         </form>
-        }
     </div>
     )
 }

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import Post from "../model/Post";
-import PostForm from "./PostForm";
 import './PostInList.css';
-import SocialPosts from "./SocialPosts";
+
 
 interface Props {
     post: Post;
